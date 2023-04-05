@@ -18,11 +18,11 @@ const settings = {
 const banners = [
   {
     id: "1",
-    url: "https://images.ctfassets.net/gqlaeh1nu6o2/3TnFbh2FaUiMVjDhH6QWto/ceac3bfd88d5f74d257458c87dd59976/Women-s_Jacket.jpg",
+    url: "https://images.ctfassets.net/gqlaeh1nu6o2/4LiT4yLEqGAnn3ucXDOzyq/09fa8aa55df848b1f7aa616d6b7657c6/photo-5b.jpg",
   },
   {
-    id: "1",
-    url: "https://images.ctfassets.net/gqlaeh1nu6o2/4LiT4yLEqGAnn3ucXDOzyq/09fa8aa55df848b1f7aa616d6b7657c6/photo-5b.jpg",
+    id: "2",
+    url: "https://images.ctfassets.net/gqlaeh1nu6o2/3TnFbh2FaUiMVjDhH6QWto/ceac3bfd88d5f74d257458c87dd59976/Women-s_Jacket.jpg",
   },
 ];
 
