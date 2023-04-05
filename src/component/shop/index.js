@@ -130,7 +130,7 @@ class ShopPage extends Component {
                     </div>
                   </div>
                 </div>
-                {products.length > 0 ? (
+                {searchResults.length > 0 ? (
                   <div>
                     <Row className="products products-loop grid ciyashop-products-shortcode pgs-product-list">
                       {searchResults
