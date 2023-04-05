@@ -79,7 +79,7 @@ class SideFilter extends Component {
     this.props.sizeValue(sizes);
   }
   SearchTextchange(searchText) {
-    console.log("search method called", this.state.SearchValue);
+    console.log("search method called", this.props);
     // this.props.searchValue(SearchText.target.value);
     // this.props
     //   .getSearchProduct(searchText, this.props.totalCategory)
@@ -240,6 +240,7 @@ class SideFilter extends Component {
                 SearchValue: e.target.value,
               });
               this.searchTextchangeFunc(e.target.value);
+              this.props.Test(e)
             }}
             placeholder="Search a Product"
           />

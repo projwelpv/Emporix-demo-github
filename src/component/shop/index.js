@@ -21,6 +21,7 @@ class ShopPage extends Component {
       limit: pageLimit,
       hasMoreProduct: true,
       getproduct: [],
+      searchValue: "",
     };
   }
   componentWillMount() {
@@ -32,9 +33,6 @@ class ShopPage extends Component {
     //   }, 2500);
     // }
   }
-
-
-  
 
   onLoadMore = () => {
     let nextLimit = this.state.limit + pageLimit;
@@ -51,10 +49,13 @@ class ShopPage extends Component {
     });
   };
 
-  searchValues=(e)=>{
-
-
-  }
+  searchValues = (e) => {
+    console.log("ff", e.target.value);
+    this.setState({ ...this.state, searchValue: e.target.value });
+    // const searchResults = usersDetailsList.filter(eachUser =>
+    //   eachUser.name.includes(e.target.value)
+    // )
+  };
   refreshPage = () => {
     window.location.reload(false);
   };
@@ -65,6 +66,10 @@ class ShopPage extends Component {
     if (layoutstyle == null) {
       layoutstyle = localStorage.setItem("setLayoutStyle", "col-sm-6 col-md-4");
     }
+
+    const searchResults = products?.filter((eachUser) =>
+      eachUser?.name.en.toLowerCase().includes(this.state.searchValue)
+    );
 
     return (
       <div className="site-content">
@@ -99,12 +104,14 @@ class ShopPage extends Component {
               <div className="sidebar col-xl-3 col-lg-4 desktop">
                 <div className="shop-sidebar-widgets">
                   <SideFilter
-                    onChange={() => {
+                    onChange={(e) => {
                       this.setState({ limit: 0 }, () => {
                         this.onLoadMore();
                       });
                     }}
-                   
+                    Test={(e) => {
+                      this.searchValues(e);
+                    }}
                   />
                   <SocialFilter />
                   {/* <ShopBanner /> */}
@@ -126,7 +133,7 @@ class ShopPage extends Component {
                 {products.length > 0 ? (
                   <div>
                     <Row className="products products-loop grid ciyashop-products-shortcode pgs-product-list">
-                      {products
+                      {searchResults
                         .slice(0, this.state.limit)
                         .map((product, index) => (
                           <ProductList
@@ -177,8 +184,8 @@ class ShopPage extends Component {
 }
 const mapDispatchToProps = (state) => ({
   // products: getFilterProductsdata(state.data, state.filters),
-  products:state.data.products,
-  allPrices:state?.price?.prices,
+  products: state.data.products,
+  allPrices: state?.price?.prices,
   cartID: state.cartId.cartId,
 });
 export default connect(mapDispatchToProps, {})(ShopPage);
